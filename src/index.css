@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 20 10% 8%;
+    --foreground: 30 20% 95%;
+
+    --card: 20 10% 12%;
+    --card-foreground: 30 20% 95%;
+
+    --popover: 20 10% 12%;
+    --popover-foreground: 30 20% 95%;
+
+    --primary: 15 45% 60%;
+    --primary-foreground: 20 10% 8%;
+
+    --secondary: 20 10% 18%;
+    --secondary-foreground: 30 20% 90%;
+
+    --muted: 20 10% 16%;
+    --muted-foreground: 30 10% 55%;
+
+    --accent: 30 60% 55%;
+    --accent-foreground: 20 10% 8%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 30 20% 95%;
+
+    --border: 20 15% 22%;
+    --input: 20 15% 22%;
+    --ring: 15 45% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gold: 38 75% 55%;
+    --gold-light: 38 85% 70%;
+    --rose-gold: 15 45% 60%;
+    --rose-gold-light: 15 55% 75%;
+    --copper: 20 55% 50%;
+    
+    --gradient-gold: linear-gradient(135deg, hsl(38, 75%, 55%), hsl(15, 45%, 60%));
+    --gradient-rose: linear-gradient(135deg, hsl(15, 55%, 70%), hsl(20, 55%, 50%));
+    --gradient-dark: linear-gradient(180deg, hsl(20, 10%, 10%), hsl(20, 10%, 6%));
+    
+    --shadow-gold: 0 4px 20px -4px hsl(15 45% 60% / 0.3);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
+    
+    --sidebar-background: 20 10% 10%;
+    --sidebar-foreground: 30 20% 90%;
+    --sidebar-primary: 15 45% 60%;
+    --sidebar-primary-foreground: 20 10% 8%;
+    --sidebar-accent: 20 10% 18%;
+    --sidebar-accent-foreground: 30 20% 90%;
+    --sidebar-border: 20 15% 20%;
+    --sidebar-ring: 15 45% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(38, 75%, 55%), hsl(15, 45%, 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, hsl(38, 75%, 55%), hsl(15, 45%, 60%));
+  }
+
+  .border-gradient-gold {
+    border-image: linear-gradient(135deg, hsl(38, 75%, 55%), hsl(15, 45%, 60%)) 1;
+  }
+
+  .shadow-gold {
+    box-shadow: 0 4px 20px -4px hsl(15 45% 60% / 0.3);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 30px hsl(15 45% 60% / 0.2), 0 0 60px hsl(38 75% 55% / 0.1);
+  }
+}
+
+@layer utilities {
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+    background: linear-gradient(
+      90deg,
+      hsl(15 45% 60% / 0) 0%,
+      hsl(15 45% 60% / 0.3) 50%,
+      hsl(15 45% 60% / 0) 100%
+    );
+    background-size: 200% 100%;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .animate-pulse-gold {
+    animation: pulse-gold 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(15 45% 60% / 0.4); }
+    50% { box-shadow: 0 0 0 10px hsl(15 45% 60% / 0); }
+  }
+}
+
+/* QR Scanner styles */
+#qr-reader {
+  border: none !important;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+#qr-reader video {
+  border-radius: 0.75rem;
+}
+
+#qr-reader__scan_region {
+  background: transparent !important;
+}
+
+#qr-reader__dashboard {
+  padding: 1rem !important;
+}
