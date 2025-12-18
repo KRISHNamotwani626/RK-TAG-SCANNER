@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>RK GOLD - Jewellery Tag Scanner & Invoice Generator</title>
+
+    <meta
+      name="description"
+      content="RK GOLD wholesale jewellery tag scanner. Scan QR codes, manage inventory, and generate professional invoices instantly."
+    />
+    <meta name="author" content="RK GOLD" />
+    <meta
+      name="keywords"
+      content="jewellery, gold, wholesale, scanner, invoice, QR code, RK GOLD, Bhopal"
+    />
+
+    <!-- ✅ PWA REQUIRED -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="RK GOLD - Jewellery Tag Scanner" />
+    <meta
+      property="og:description"
+      content="Professional jewellery tag scanner and invoice generator for wholesale business"
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RK GOLD - Jewellery Tag Scanner" />
+    <meta
+      name="twitter:description"
+      content="Professional jewellery tag scanner and invoice generator"
+    />
+
+    <link rel="canonical" href="/" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!-- Main app -->
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- ✅ SERVICE WORKER REGISTRATION -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("/sw.js");
+        });
+      }
+    </script>
+  </body>
+</html>
